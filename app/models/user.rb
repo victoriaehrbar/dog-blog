@@ -6,5 +6,6 @@ class User < ApplicationRecord
     validates :username, presence: true
 
 
-    has_secure_password
+    has_secure_password #gives access to authenticate, validatations of password
+
 end
