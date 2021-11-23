@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     end
 
     def show
-    end
+        @user = User.find_by_id(params[:id])
+        @dogs = Dog.all
 
     private
 
