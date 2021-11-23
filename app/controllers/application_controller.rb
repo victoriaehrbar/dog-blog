@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+    #gives access to methods in the views
     helper_method :current_user, :logged_in?, :require_login
 
     private
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::Base
     def require_login
         unless logged_in?
         flash[:message] = "You must be logged in to do this"
-        redirect_to login_path    
+        redirect_to login_path 
         end
     end
 
