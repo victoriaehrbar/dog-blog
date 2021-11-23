@@ -12,8 +12,9 @@
   <body>
 
   <div>
-    <%= link_to "Sign in", signin_path %> |
-    <%= link_to "Log in", login_path %>
+    <%= link_to "Sign in", signup_path %> |
+    <%= link_to "Log in", login_path %> |
+    <%= link_to "Logout", logout_path, method: "delete" %>
   </div>
     <%= yield %>
   </body>
