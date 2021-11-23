@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     def create     #verifies if user is in the system
         if (params[:user][:email]) == "" || (params[:user][:password]) == ""
-            flash[:message] = "Invalid login credentials. Please try again."
+            flash[:message] = "Invalid login credentials. Please retry."
             render '/sessions/new'
         else
             @user = User.find_by(email: params[:user][:email])

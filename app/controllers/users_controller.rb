@@ -10,7 +10,6 @@ class UsersController < ApplicationController
         if @user.save
             #log user in
             session[:user_id] = @user.id 
-            #redirect to show page
             redirect_to user_path(@user)
         else
             render :new
