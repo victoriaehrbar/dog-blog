@@ -4,7 +4,8 @@ class CreateDogs < ActiveRecord::Migration[6.1]
       t.string :dog_name
       t.string :mood
       t.integer :weight
-      t.belongs_to :breed, null: false, foreign_key: true
+      t.integer :breed_id
+      t.integer :user_id
 
       t.timestamps
     end
