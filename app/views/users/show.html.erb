@@ -1,1 +1,23 @@
-<h1>show</h1>
+<div class="container">
+<h1 class="underlined">Welcome <%=@user.username %>!</h1>
+
+<h2>Welcome to Dog Blog</h2>
+<br>
+<p>Write updates about dog training progress! </p>
+<br>
+
+
+<h3>View all existing dogs: </h3>
+<br>
+
+<div class="container"><%= link_to "View all Dogs", dogs_path %>
+</div>
+<br>
+<h3>Or add a new one:</h3>
+<br>
+<div class="container">
+<%= link_to "Add a Dog", new_dog_path %>
+</div>
+
+
+</div>
