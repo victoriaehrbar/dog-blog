@@ -12,9 +12,16 @@
   <body>
 
   <div>
-    <%= link_to "Sign in", signup_path %> |
-    <%= link_to "Log in", login_path %> |
+    <% if logged_in?%>
+    <% link_to "Add an Update", new_update_path %> |
+    <% link_to "All Updates", updates_path %> |
     <%= link_to "Logout", logout_path, method: "delete" %>
+    
+    <% else %>
+    <%= link_to "Log in", login_path %> |
+    <%= link_to "Sign up", signup_path %>
+    <% end %>
+
   </div>
     <%= yield %>
   </body>
