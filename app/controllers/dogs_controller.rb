@@ -36,7 +36,28 @@ class DogsController < ApplicationController
         def edit
         end
 
-        def update
+        def change
+            if @dog.change(dog_params)
+                redirect_to dog_path(@dog)
+            else
+                render :edit
+            end
         end
+
+        def destroy
+            @dog.destroy
+            redirect_to user_path(@current_user)
+        end
+
+        private
+
+        def dog_params
+            params.require(:dog).permit(:dog_name, :mood, :weight, :user_id, :breed_id, breed_attributes: [:breed_name])
+        end
+    
+        def find_dog
+            @dog = Dog.find_by(id: params[:id])
+        end
+
 
 end
