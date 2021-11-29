@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_233124) do
     t.string "dog_name"
     t.string "mood"
     t.integer "weight"
+    t.string "breed"
     t.integer "breed_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
