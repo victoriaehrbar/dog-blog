@@ -1,0 +1,31 @@
+
+<h1 class="underlined">Reviews for <%= "#{@dog.dog_name}" %></h1>
+<br>
+
+<ol>
+<% @updates.each do |update| %>
+<li>
+    <p><strong>Update from: </strong><%= update.user.username %></p> 
+    <p><strong>Training Score: </strong><%= update.training_score %></p>
+    <p><strong>Description: </strong><%= update.content %></p> 
+
+<% if logged_in? %>
+    <% if update.user_id == current_user.id %>
+        <%= link_to "Edit", edit_update_path(update) %>  or  
+        <%= link_to "Delete", update_path(update), method: :delete, data: {confirm: "Are you sure?" } %> <br>
+        <% end %>
+<% end %>   <br>
+    <% end %>
+</ul>
+<br><br>
+</li>
+<% if !logged_in? %>
+    <br>
+    <p>Log in or Sign up to add a new update</p>
+    <%= link_to "Sign Up", signup_path  %>
+    <br>
+    <%= link_to "Log In", login_path %>
+<% end %>
+</div>
+
+<%= link_to "Back", dog_path(@dog) %>
