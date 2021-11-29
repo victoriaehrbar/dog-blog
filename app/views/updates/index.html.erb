@@ -1,1 +1,37 @@
-<h1>Updates Index</h1>
+
+<% if params[:dog_id] %>
+<%= render '/updates/dogupdates' %>
+<% else %>
+
+<div class="container">
+<h1 class="underlined"> All Updates</h1>
+<br>
+
+<ol>
+<% @updates.each do |update| %>
+
+<li><h4>Update for <%= link_to "#{update.dog.dog_name}", dog_path(update.dog) %> </h4></li>
+
+<p><strong>Training score: </strong><%= update.training_score %></p>
+<p><strong>Description: </strong><%= update.content %></p> 
+<p><strong>Updated by: </strong><%= update.user.username %></p> 
+
+<% if authorized(update, current_user) %>
+    <%= link_to "Edit", edit_update_path(update) %>  or  
+    <%= link_to "Delete", update_path(update), method: :delete, data: {confirm: "Are you sure?" } %> <br>
+<% end %>
+<br>
+<% end %>   
+</ul>
+
+<br><br>
+<% if !logged_in? %>
+<br>
+<p>Log in or Sign up to add a new update</p>
+<%= link_to "Sign Up", signup_path  %>
+<br>
+<%= link_to "Log In", login_path %>
+<% end %>
+<br>
+</div>
+<% end %>
