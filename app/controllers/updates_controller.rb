@@ -25,6 +25,7 @@ class UpdatesController < ApplicationController
         @update = Update.new(update_params)
         @dog = Dog.find_by_id(params[:update][:dog_id])
         @update.user_id = current_user.id
+        #byebug
         if @update.save 
             redirect_to update_path(@update)
         else
