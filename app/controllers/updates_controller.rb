@@ -13,12 +13,12 @@ class UpdatesController < ApplicationController
 
     def show
         @update = Update.find_by_id(params[:id])
-        @dog = @update.restaurant
+        @dog = @update.dog
     end
 
     def new
         @dog = Dog.find_by_id(params[:dog_id])
-        @update = @dog.reviews.build
+        @update = @dog.updates.build
     end
 
     def create
@@ -38,7 +38,7 @@ class UpdatesController < ApplicationController
     end
 
     def change
-        @dog = Dog.find_by_id(params[:review][:dog_id])
+        @dog = Dog.find_by_id(params[:update][:dog_id])
         @update = Update.find_by_id(params[:id])
         if @update.change(update_params)
             redirect_to update_path(@update)
