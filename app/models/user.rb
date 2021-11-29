@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
     def self.from_omniauth(auth)
         @user = User.find_or_create_by(email: auth[:info][:email]) do |u|
-        u.username = auth['info']['username']
+        u.username = auth['info']['first_name']
+        # byebug
         u.email = auth['info']['email']
         u.password = SecureRandom.hex(10)
         end
