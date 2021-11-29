@@ -1,0 +1,18 @@
+<h2 class="underlined">Update for <%= link_to "#{@update.dog.dog_name}", dog_path(@dog) %></h2>
+<br>
+<h2>Training score (1-10): <%= @update.training_score %>
+<h2>Description: <%= @update.content %></h2>
+
+<br>
+<p><strong>Updated By:</strong> <%= @update.user.username %></p>
+<br>
+    <% if authorized(@review, current_user) %>
+        <%= link_to "Edit Update", edit_update_path(@update) %>
+        <br>
+        <%= link_to "Delete Update", update_path(@update), method: 'delete', data: {confirm: "Are you sure you want to delete this update?"} %>
+        <br>
+    <% end %>
+<br>
+<br>
+<br>
+ <%= link_to "All #{@update.dog.dog_name} Updates", dog_updates_path(@dog) %>
