@@ -23,7 +23,7 @@ gem 'omniauth-rails_csrf_protection'
 gem "omniauth-google-oauth2"
 gem 'dotenv-rails'
 gem 'thin'
-#allows us to use .env file and have access to it in the app
+#allows us to use .env file and have access in the app
 
 
 group :development, :test do
