@@ -32,7 +32,6 @@ class SessionsController < ApplicationController
     def google_omniauth
         @user = User.from_omniauth(auth)
         session[:user_id] = @user.id
- 
         redirect_to user_path(@user)
     end
 

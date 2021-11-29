@@ -36,8 +36,8 @@ class DogsController < ApplicationController
         def edit
         end
 
-        def change
-            if @dog.change(dog_params)
+        def update
+            if @dog.update(dog_params)
                 redirect_to dog_path(@dog)
             else
                 render :edit

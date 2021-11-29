@@ -37,10 +37,10 @@ class UpdatesController < ApplicationController
         @update = Update.find_by_id(params[:id])
     end
 
-    def change
+    def update
         @dog = Dog.find_by_id(params[:update][:dog_id])
         @update = Update.find_by_id(params[:id])
-        if @update.change(update_params)
+        if @update.update(update_params)
             redirect_to update_path(@update)
         else
             render :edit

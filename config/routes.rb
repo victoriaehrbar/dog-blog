@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'login', to: "sessions#create"
   get "/signup", to: "users#new"
   
-  get 'auth/:provider/callback', to: 'sessions#google'
+  get 'auth/:provider/callback', to: 'sessions#google_omniauth'
   get 'auth/failure', to: redirect('/')
   
   delete '/logout', to: "sessions#destroy"
