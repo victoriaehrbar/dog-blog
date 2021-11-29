@@ -1,0 +1,18 @@
+<div class="container">
+<% if !logged_in? %>
+    <br>
+    <div class="container">
+    <h4>Log in or sign up to add a dog</h4>
+    <%= link_to "Sign Up", signup_path  %>
+    <br>
+    <%= link_to "Log In", login_path %>
+    </div>
+<% else %>
+
+<h1 class="underlined">Add a new dog: </h1>
+<br>
+
+<%= render partial: 'layouts/error_messages', locals: {instance: @dog} %>
+<%= render 'form' %>
+<% end %>
+</div>
