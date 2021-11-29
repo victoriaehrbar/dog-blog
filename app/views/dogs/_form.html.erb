@@ -1,0 +1,22 @@
+<div class="container">
+<%= form_for @restaurant do |f| %>
+    <%= f.label :dog_name %>
+    <%= f.text_field :dog_name %>
+    <br>
+    <br>
+    <%= f.label :mood %>
+    <%= f.text_field :mood %>
+    <br>
+    <br>
+    <%= f.label :weight %>
+    <%= f.text_field :weight%>
+    <br>
+    <br>
+    <%= f.label :cuisine, "Choose a breed" %>
+    <%= f.collection_select :breed_id, Breed.all, :id, :breed_name, prompt: true, :selected => @dog.breed_id %>
+    <br>
+    <br>
+    <%= f.submit %>
+    <br>
+<% end %>
+</div>
