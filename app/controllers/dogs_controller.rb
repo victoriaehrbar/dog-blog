@@ -6,4 +6,14 @@ class DogsController < ApplicationController
     def index
         @dogs = Dog.all 
     end
+
+    def show
+        @updates = @dog.updates.high_training_score
+    end
+
+    def new
+        @dog = Dog.new
+    end
+
+    
 end
