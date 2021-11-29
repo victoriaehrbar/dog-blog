@@ -4,7 +4,7 @@
 <h2>Description: <%= @update.content %></h2>
 
 <br>
-<p><strong>Updated By:</strong> <%= @update.user.username %></p>
+<p><strong>Updated by:</strong> <%= @update.user.username %></p>
 <br>
     <% if authorized(@review, current_user) %>
         <%= link_to "Edit Update", edit_update_path(@update) %>
