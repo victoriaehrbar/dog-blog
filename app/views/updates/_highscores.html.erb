@@ -1,0 +1,19 @@
+<div class="container">
+<h1 class="underlined">High Scores for <%= @dog.dog_name %></h1>
+<br>
+
+<% @updates.each do |update| %>
+    <p><strong>Training Score: </strong><%= update.training_score %></p>
+    <p><strong>Content: </strong><%= update.content %></p>
+    <p><strong>Updated by: </strong><%= update.user.username %></p> 
+
+<% if logged_in? %>
+    <% if review.user_id == current_user.id %>
+        <%= link_to "Edit", edit_update_path(update) %>  or  
+        <%= link_to "Delete", update_path(update), method: :delete, data: {confirm: "Are you sure you want to delete this?" } %> <br>
+    <% end %>
+<% end %>
+    <br>
+</ul>
+<% end %>
+</div>

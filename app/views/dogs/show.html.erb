@@ -1,0 +1,35 @@
+<div class="container">
+<h1 class="underlined"><%= @dog.dog_name %></h1>
+
+<h3>Weight: <%= @dog.weight %></h3>
+
+<% if @dog.mood != "" %>
+    <h3>Mood: <%= @restaurant.mood %></h3>
+<% end %>
+
+<h3>Breed: <%= @dog.breed.breed_name %></h3>
+<br>
+<br>
+
+    <% if authorized(@dog, current_user) %>
+        <%= link_to "Edit #{@dog.dog_name}", edit_dog_path(@dog) %>
+        <br>
+        <%= link_to "Delete #{@dog.dog_name}", dog_path(@dog), method: :delete, data: {confirm: "Are you sure you want to delete #{@dog.dog_name}?" } %>
+    <% end %>
+<br>
+<br>
+    <%= link_to "Update #{@dog.dog_name}", new_dog_update_path(@dog) %>
+
+
+<br>
+<br>
+<br>
+    <% if @dog.updates == [] %>
+        <h4>There are no updates for <%= @dog.dog_name %> yet.</h4>
+    <% else %>
+    <%= link_to "All #{@dog.dog_name} Updates", dog_updates_path(@dog) %>
+    <%= render '/updates/highscores' %>
+    <% end %>
+<br>
+
+</div>	
