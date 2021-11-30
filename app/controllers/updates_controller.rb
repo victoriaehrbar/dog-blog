@@ -13,7 +13,7 @@ class UpdatesController < ApplicationController
 
     def show
         @update = Update.find_by_id(params[:id])
-        @dog = @update.dog
+        @dog = update.dog
     end
 
     def new
@@ -51,7 +51,7 @@ class UpdatesController < ApplicationController
     def destroy
         @update = Update.find_by_id(params[:id])
         @update.destroy
-        redirect_to update_path
+        redirect_to updates_path
     end
 
     private
