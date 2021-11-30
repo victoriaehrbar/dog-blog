@@ -6,7 +6,7 @@ class UpdatesController < ApplicationController
         if params[:dog_id] #if nested. only show updates for that dog
             @dog = Dog.find_by_id(params[:dog_id])
             @updates = @dog.updates
-        else    #show all the reviews in db
+        else    #show all reviews in database
             @updates = Update.all
         end
     end
