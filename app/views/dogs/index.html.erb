@@ -13,6 +13,7 @@
     <ul>
     <li>Breed: <%= dog.breed.breed_name %></li>
     <li>Weight: <%= dog.weight %></li>
+    <li>Mood: <%=dog.mood %></li>
     </ul>
     <br>
     <%= link_to "Update #{dog.dog_name}", new_dog_update_path(dog) %>
