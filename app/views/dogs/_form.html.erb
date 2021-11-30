@@ -12,7 +12,7 @@
     <%= f.number_field :weight%>
     <br>
     <br>
-    <%= f.label :cuisine, "Choose a breed" %>
+    <%= f.label :breed, "Choose a breed" %>
     <%= f.collection_select :breed_id, Breed.all, :id, :breed_name, prompt: true, :selected => @dog.breed_id %>
     <br>
     <br>
