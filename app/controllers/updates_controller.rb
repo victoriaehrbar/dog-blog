@@ -12,8 +12,9 @@ class UpdatesController < ApplicationController
     end
 
     def show
+        # byebug
         @update = Update.find_by_id(params[:id])
-        @dog = update.dog
+        @dog = @update.dog
     end
 
     def new
@@ -39,6 +40,7 @@ class UpdatesController < ApplicationController
     end
 
     def update
+        # byebug
         @dog = Dog.find_by_id(params[:update][:dog_id])
         @update = Update.find_by_id(params[:id])
         if @update.update(update_params)
