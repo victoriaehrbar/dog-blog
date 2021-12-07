@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
     def welcome
     end
 
+    def about
+        @user = current_user
+    end
+
     def new
     end
 
